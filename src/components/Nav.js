@@ -21,6 +21,20 @@ export default class Nav extends Component {
                         <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         <Link className="nav-link" to="/profile">Profile</Link>
                         <Link className="nav-link" to="/todo">To Do List</Link>
+
+                        {this.props.user.apitoken? 
+                        <>
+                        <Link className="nav-link" to="/login" onClick={this.props.logMeOut}>Log out</Link>
+                        <p className='nav-link'>Hello, {this.props.user.username}</p>
+                        </>:
+                        <>
+                        
+                        <Link className="nav-link" to="/signup">Sign Up</Link>
+                        <Link className="nav-link" to="/login">Login</Link>
+
+                        </>
+                        }
+    
                         <Link className="nav-link" href="#">{this.state.id}</Link>
                     </div>
                 </div>
